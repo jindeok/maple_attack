@@ -131,6 +131,11 @@ button#saveSettings:hover, button#loadSettings:hover {
     margin-top: 10px;
 }
 
+.title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .image-container {
     position: absolute;
     bottom: 10px;
@@ -145,6 +150,167 @@ button#saveSettings:hover, button#loadSettings:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+#result .min-damage {
+    color: red;
+    font-weight: 600;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #FFDDC1, #FFE7BA);
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-weight: 500;
+    position: relative;
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h2 {
+    color: #2600ff;
+    font-weight: 600;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.title-image {
+    width: 50px;
+    height: auto;
+    border-radius: 5px;
+}
+
+form {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    z-index: 1;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: 500;
+}
+
+.stat-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.stat-group label {
+    flex: 1;
+    margin: 0 5px;
+    text-align: center;
+}
+
+.stat-group input {
+    width: calc(100% - 12px);
+    padding: 6px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9em;
+}
+
+input[type="number"], select {
+    width: calc(100% - 12px);
+    padding: 6px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9em;
+}
+
+input[type="submit"] {
+    background: #FF8C42;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.8em;
+    margin: 0 2.5px;
+}
+
+input[type="submit"]:hover {
+    background: #e07b39;
+}
+
+button#saveSettings, button#loadSettings {
+    background: #ccc;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.8em;
+    margin: 5px 0;
+}
+
+button#saveSettings:hover, button#loadSettings:hover {
+    background: #bbb;
+}
+
+#settings-buttons {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+}
+
+#result {
+    margin-top: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+#recommendation {
+    margin-top: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: green;
+}
+
+.monster-info {
+    background: rgba(255, 235, 205, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.image-container {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 0;
+}
+
+.image-container img {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
 #result .min-damage {
     color: red;
@@ -154,4 +320,48 @@ button#saveSettings:hover, button#loadSettings:hover {
 #result .max-damage {
     color: blue;
     font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .title-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .title-image {
+        width: 40px;
+        margin-top: 10px;
+    }
+
+    form {
+        width: 90%;
+    }
+
+    input[type="submit"], button#saveSettings, button#loadSettings {
+        width: calc(50% - 5px);
+    }
+}
+
+#result .max-damage {
+    color: blue;
+    font-weight: 600;
+}
+@media (max-width: 118px) {
+    .title-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .title-image {
+        width: 20px;
+        margin-top: 10px;
+    }
+
+    form {
+        width: 20%;
+    }
+
+    input[type="submit"], button#saveSettings, button#loadSettings {
+        width: calc(50% - 5px);
+    }
 }
