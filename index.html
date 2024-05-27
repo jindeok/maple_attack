@@ -62,13 +62,20 @@
                 $.ajax({
                     url: '/calculate',
                     type: 'POST',
-                    data: $(this).serialize(),
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        job: $('#job').val(),
+                        level: $('#level').val(),
+                        str: $('#str').val(),
+                        dex: $('#dex').val(),
+                        int: $('#int').val(),
+                        luk: $('#luk').val(),
+                        pdd: $('#pdd').val(),
+                        m_level: $('#m_level').val(),
+                        m_pad: $('#m_pad').val()
+                    }),
                     success: function(response) {
-                        if (response.error) {
-                            $('#result').html('에러: ' + response.error);
-                        } else {
-                            $('#result').html('최소 피격 데미지: ' + response.damagemin + '<br>최대 피격 데미지: ' + response.damagemax);
-                        }
+                        $('#result').html('최소 피격 데미지: ' + response.damagemin + '<br>최대 피격 데미지: ' + response.damagemax);
                     },
                     error: function(error) {
                         $('#result').html('에러가 발생했습니다. 다시 시도해주세요.');
