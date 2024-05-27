@@ -5,4 +5,4 @@
   from = "/calculate"
   to = "/.netlify/functions/calculate"
   status = 200
-  method = POST
+  method = "POST"
