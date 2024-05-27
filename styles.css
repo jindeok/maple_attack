@@ -11,10 +11,12 @@ body {
     height: 100vh;
     font-weight: 500;
 }
+
 h2 {
     color: #2600ff;
     font-weight: 600;
 }
+
 form {
     background: rgba(255, 255, 255, 0.8);
     padding: 20px;
@@ -22,20 +24,24 @@ form {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 320px;
 }
+
 label {
     display: block;
     margin: 10px 0 5px;
     font-weight: 500;
 }
+
 .stat-group {
     display: flex;
     justify-content: space-between;
 }
+
 .stat-group label {
     flex: 1;
     margin: 0 5px;
     text-align: center;
 }
+
 .stat-group input {
     width: calc(100% - 12px);
     padding: 6px;
@@ -45,6 +51,7 @@ label {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.9em;
 }
+
 input[type="number"], select {
     width: calc(100% - 12px);
     padding: 6px;
@@ -54,47 +61,94 @@ input[type="number"], select {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.9em;
 }
+
 input[type="submit"] {
     background: #FF8C42;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 8px 16px;
     border-radius: 5px;
     cursor: pointer;
-    width: 100%;
+    width: calc(50% - 5px);
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-    font-size: 0.9em;
+    font-size: 0.8em;
+    margin: 0 2.5px;
 }
+
 input[type="submit"]:hover {
     background: #e07b39;
 }
+button#saveSettings, button#loadSettings {
+    background: #ccc;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: calc(50% - 5px);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.8em;
+    margin: 0 2.5px;
+}
+#settings-buttons {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+#settings-buttons button {
+    margin: 5px 0;
+}
+button#saveSettings:hover, button#loadSettings:hover {
+    background: #bbb;
+}
+
+
+button#saveSettings:hover, button#loadSettings:hover {
+    background: #bbb;
+}
+
+#button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
 #result {
     margin-top: 20px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
 }
+
 .monster-info {
     background: rgba(255, 235, 205, 0.8);
     padding: 10px;
     border-radius: 10px;
     margin-top: 10px;
 }
+
 .image-container {
     position: absolute;
     bottom: 10px;
     right: 10px;
 }
+
 .image-container img {
     width: 150px;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 #result .min-damage {
     color: red;
     font-weight: 600;
 }
+
 #result .max-damage {
     color: blue;
     font-weight: 600;

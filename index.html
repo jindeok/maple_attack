@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h2>메이플 랜드 몸박뎀 계산기 (ver. 1.00)</h2>
+    <h3>메이플 랜드 몸박뎀 계산기 (ver. 1.0)</h3>
 
     <form id="damageForm">
         <label for="job">직업:</label>
@@ -44,7 +44,11 @@
             <label for="m_pad">몬스터 물리 공격력:</label>
             <input type="number" id="m_pad" name="m_pad" required>
         </div>
-        <input type="submit" value="Calculate">
+        <div id="button-container">
+            <input type="submit" value="Calculate">
+            <button type="button" id="saveSettings">저장</button>
+            <button type="button" id="loadSettings">불러오기</button>
+        </div>
     </form>
 
     <div class="image-container">

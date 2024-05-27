@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Load saved settings from localStorage when the page loads
+    loadSettings();
+
     document.getElementById('damageForm').addEventListener('submit', function(event) {
         event.preventDefault();
 
@@ -55,4 +58,40 @@ document.addEventListener('DOMContentLoaded', function() {
             <span class="min-damage">최소 피격 데미지: ${damagemin}</span><br>
             <span class="max-damage">최대 피격 데미지: ${damagemax}</span>`;
     });
+
+    document.getElementById('saveSettings').addEventListener('click', function() {
+        const settings = {
+            job: document.getElementById('job').value,
+            level: document.getElementById('level').value,
+            str: document.getElementById('str').value,
+            dex: document.getElementById('dex').value,
+            int: document.getElementById('int').value,
+            luk: document.getElementById('luk').value,
+            pdd: document.getElementById('pdd').value,
+            m_level: document.getElementById('m_level').value,
+            m_pad: document.getElementById('m_pad').value
+        };
+        localStorage.setItem('settings', JSON.stringify(settings));
+        alert('설정이 저장되었습니다.');
+    });
+
+    document.getElementById('loadSettings').addEventListener('click', function() {
+        loadSettings();
+        alert('설정을 불러왔습니다.');
+    });
+
+    function loadSettings() {
+        const settings = JSON.parse(localStorage.getItem('settings'));
+        if (settings) {
+            document.getElementById('job').value = settings.job;
+            document.getElementById('level').value = settings.level;
+            document.getElementById('str').value = settings.str;
+            document.getElementById('dex').value = settings.dex;
+            document.getElementById('int').value = settings.int;
+            document.getElementById('luk').value = settings.luk;
+            document.getElementById('pdd').value = settings.pdd;
+            document.getElementById('m_level').value = settings.m_level;
+            document.getElementById('m_pad').value = settings.m_pad;
+        }
+    }
 });
