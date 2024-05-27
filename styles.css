@@ -134,7 +134,8 @@ button#saveSettings:hover, button#loadSettings:hover {
 .image-container {
     position: absolute;
     bottom: 10px;
-    right: 10px;
+    left: 10px;
+    z-index: 0;
 }
 
 .image-container img {
@@ -143,6 +144,7 @@ button#saveSettings:hover, button#loadSettings:hover {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 
 #result .min-damage {
     color: red;
