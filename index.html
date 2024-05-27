@@ -1,0 +1,57 @@
+<!-- templates/index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Damage Calculator</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Damage Calculator</h1>
+    <form id="damageForm">
+        <label for="job">직업:</label>
+        <input type="number" id="job" name="job" required><br><br>
+        <label for="level">레벨:</label>
+        <input type="number" id="level" name="level" required><br><br>
+        <label for="str">힘:</label>
+        <input type="number" id="str" name="str" required><br><br>
+        <label for="dex">덱스:</label>
+        <input type="number" id="dex" name="dex" required><br><br>
+        <label for="int">인트:</label>
+        <input type="number" id="int" name="int" required><br><br>
+        <label for="luk">럭:</label>
+        <input type="number" id="luk" name="luk" required><br><br>
+        <label for="pdd">현재 방어력:</label>
+        <input type="number" id="pdd" name="pdd" required><br><br>
+        <label for="m_level">몬스터 레벨:</label>
+        <input type="number" id="m_level" name="m_level" required><br><br>
+        <label for="m_pad">몬스터 피지컬 공격력:</label>
+        <input type="number" id="m_pad" name="m_pad" required><br><br>
+        <input type="submit" value="Calculate">
+    </form>
+    
+    <h2>피격 데미지 결과</h2>
+    <p id="result">결과가 여기에 표시됩니다</p>
+
+    <script>
+        $(document).ready(function() {
+            $('#damageForm').on('submit', function(event) {
+                event.preventDefault();
+                
+                $.ajax({
+                    url: '/calculate',
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        $('#result').html('최소 피격 데미지: ' + response.damagemin + '<br>최대 피격 데미지: ' + response.damagemax);
+                    },
+                    error: function(error) {
+                        $('#result').html('에러가 발생했습니다. 다시 시도해주세요.');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

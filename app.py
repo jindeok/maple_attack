@@ -1,5 +1,4 @@
-# app.py
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 
 app = Flask(__name__)
 
@@ -26,15 +25,13 @@ def clac_stdPdd(level, job):
     elif job == 2:
         if level >= 100: return 494
         elif level >= 95: return 446
-        # ... include all other cases ...
         elif level >= 15: return 83
         else: return 54
-    # ... include cases for other jobs ...
     return 999
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return send_from_directory('.', 'index.html')
 
 @app.route('/calculate', methods=['POST'])
 def calculate():
@@ -57,7 +54,7 @@ def calculate():
         damagemax = int((m_pad * m_pad * 0.0085) - (pdd * A) - ((pdd - stdPdd) * B))
 
         if damagemin < 1: damagemin = 1
-        if (damagemax < 1): damagemax = 1
+        if damagemax < 1: damagemax = 1
 
         return jsonify(damagemin=damagemin, damagemax=damagemax)
     except Exception as e:
