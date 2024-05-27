@@ -6,7 +6,6 @@
     <title>Damage Calculator</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <h2>메이플 랜드 몸박뎀 계산기 (ver. 1.00)</h2>
@@ -54,35 +53,6 @@
 
     <div id="result">결과가 여기에 표시됩니다</div>
 
-    <script>
-        $(document).ready(function() {
-            $('#damageForm').on('submit', function(event) {
-                event.preventDefault();
-                
-                $.ajax({
-                    url: '/calculate',
-                    type: 'POST',
-                    contentType: 'application/json',
-                    data: JSON.stringify({
-                        job: $('#job').val(),
-                        level: $('#level').val(),
-                        str: $('#str').val(),
-                        dex: $('#dex').val(),
-                        int: $('#int').val(),
-                        luk: $('#luk').val(),
-                        pdd: $('#pdd').val(),
-                        m_level: $('#m_level').val(),
-                        m_pad: $('#m_pad').val()
-                    }),
-                    success: function(response) {
-                        $('#result').html('최소 피격 데미지: ' + response.damagemin + '<br>최대 피격 데미지: ' + response.damagemax);
-                    },
-                    error: function(error) {
-                        $('#result').html('에러가 발생했습니다. 다시 시도해주세요.');
-                    }
-                });
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
